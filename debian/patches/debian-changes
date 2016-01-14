@@ -1,0 +1,37 @@
+Subject: Collected Debian patches for pam-krb5
+Author: Russ Allbery <rra@debian.org>
+
+Since I am also upstream for this package, there will normally not be any
+patches to apply to the upstream source.  However, occasionally I'll pull
+up specific upstream commits prior to making an upstream release.  When
+this happens, this patch will collect all of those modifications.
+
+I use Git to maintain both the upstream source and the Debian packages,
+and generating individual patches rather than using git cherry-pick takes
+extra work for no gain.  Since I'm also upstream, there's no need to
+separate the patches for later upstream submission.  Hence, I take this
+approach with a unified patch when it's necessary.
+
+For full commit history and separated commits, see the upstream Git
+repsitory.
+--- libpam-krb5-4.6.orig/configure.ac
++++ libpam-krb5-4.6/configure.ac
+@@ -1,7 +1,7 @@
+ dnl Autoconf configuration for pam-krb5.
+ dnl
+ dnl Written by Russ Allbery <rra@stanford.edu>
+-dnl Copyright 2009, 2010, 2011, 2012
++dnl Copyright 2009, 2010, 2011, 2012, 2013
+ dnl     The Board of Trustees of the Leland Stanford Junior University
+ dnl Copyright 2005, 2006, 2007, 2008, 2009 Russ Allbery <rra@stanford.edu>
+ dnl Copyright 2005 Andres Salomon <dilinger@debian.org>
+@@ -20,7 +20,9 @@ AM_MAINTAINER_MODE
+ 
+ AC_PROG_CC
+ AC_USE_SYSTEM_EXTENSIONS
++AC_SYS_LARGEFILE
+ AM_PROG_CC_C_O
++AM_PROG_AR
+ AC_PROG_INSTALL
+ LT_INIT([disable-static])
+ AC_CANONICAL_HOST
