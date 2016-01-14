@@ -8,6 +8,9 @@
  * Please do not reformat or otherwise change this file more than necessary so
  * that later merges with the original source are easy.  Bug fixes and
  * improvements should be sent back to the original author.
+ *
+ * The canonical version of this file is maintained in the rra-c-util package,
+ * which can be found at <http://www.eyrie.org/~eagle/software/rra-c-util/>.
  */
 
 /*
@@ -109,13 +112,10 @@
 #define VA_SHIFT(v,t)  ;   /* no-op for ANSI */
 #define VA_END          va_end(ap)
 
-#ifdef HAVE_LONG_DOUBLE
+/* Assume all compilers support long double, per Autoconf documentation. */
 #define LDOUBLE long double
-#else
-#define LDOUBLE double
-#endif
 
-#ifdef HAVE_LONG_LONG
+#ifdef HAVE_LONG_LONG_INT
 # define LLONG long long
 #else
 # define LLONG long
